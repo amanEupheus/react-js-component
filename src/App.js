@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+
+import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Blog } from "./components/blog";
+import { Content } from "./components/content";
+import { Faq } from "./components/faq";
+import { Feature } from "./components/feacture";
+import { Footer } from "./components/footer";
+import { Header } from "./components/header";
+import { Nav } from "./components/nav";
+import { Pricing } from "./components/pricing";
+import { Statistic } from "./components/statics";
+import { Step } from "./components/step";
+import { Team } from "./components/team";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <Nav/>
+      <Routes>
+        <Route exact path="/" element={<Header />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/features" element={<Feature />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/statistic" element={<Statistic />} />
+        <Route path="/content" element={<Content />} />
+        <Route path="/step" element={<Step />} />
+      </Routes>
+      <Footer/>
+    </Router>
   );
 }
+
 
 export default App;
